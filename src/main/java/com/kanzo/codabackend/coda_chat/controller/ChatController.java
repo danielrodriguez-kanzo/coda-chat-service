@@ -15,6 +15,9 @@ import jakarta.validation.Valid;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+
+import java.util.Map;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -29,6 +32,11 @@ public class ChatController {
     public ChatController(ChatService chatService, DirectMessageService dmService) {
         this.chatService = chatService;
         this.dmService = dmService;
+    }
+
+    @GetMapping("/health")
+    public Map<String, String> health() {
+        return Map.of("status", "UP");
     }
 
     @PostMapping("/message")
