@@ -1,0 +1,27 @@
+services:
+
+  coda-chat-service:
+    build: .
+
+    image: coda-chat-service:latest
+    container_name: coda-chat-service
+
+    ports:
+      - "${SERVER_PORT}:${SERVER_PORT}"
+
+    environment:
+      SERVER_PORT: ${SERVER_PORT}
+
+      APP_API_KEY: ${APP_API_KEY}
+
+      CHAT_PROVIDER: ${CHAT_PROVIDER}
+      CHAT_DM_PROVIDER: ${CHAT_DM_PROVIDER}
+
+      CHAT_WEBHOOK_URL: ${CHAT_WEBHOOK_URL}
+
+      GOOGLE_CHAT_CREDENTIALS: ${GOOGLE_CHAT_CREDENTIALS}
+    
+    volumes:
+      - ./credentials:/app/credentials:ro
+
+    restart: unless-stopped

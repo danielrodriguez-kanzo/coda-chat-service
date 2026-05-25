@@ -2,11 +2,18 @@ HELP.md
 target/
 !**/src/main/**/target/
 !**/src/test/**/target/
+.DS_Store
+Thumbs.dp
+
+### SECRETS ###
+.env
+credentials/
 src/main/resources/application-local.properties
 
 ### AI TOOLS ###
 .continue/
 .serena/
+.mcp/
 
 ### STS ###
 .apt_generated
@@ -18,10 +25,14 @@ src/main/resources/application-local.properties
 .sts4-cache
 
 ### IntelliJ IDEA ###
-.idea
+.idea/
 *.iws
 *.iml
 *.ipr
+
+### Logs ###
+logs/
+*.log
 
 ### NetBeans ###
 /nbproject/private/

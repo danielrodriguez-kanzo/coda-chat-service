@@ -5,11 +5,13 @@ import java.io.IOException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
 
 import com.google.auth.oauth2.GoogleCredentials;
 
 @Component
+@ConditionalOnProperty(name = "chat.provider", havingValue = "google-api")
 public class GoogleChatCredentialsProvider {
 
     private final String credentialsPath;
